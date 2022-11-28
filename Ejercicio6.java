@@ -16,17 +16,24 @@ public class Ejercicio6 {
             System.out.print(i+"  ");
             for (int j = 0; j<columns; j++) {
                 boolean samenum = false;
-                while (samenum == false) {
+                do {
                 samenum = true;
                 array[i][j] = (int)(Math.random()*1001); 
                 for (int k = 0; k<=i; k++) {
-                    for (int l = 0; l<=j-1; l++) {
+                    if (k==i) {
+                    for (int l = 0; l<j; l++) {
                         if (array[i][j]==array[k][l]) {
                             samenum = false;
                         }
+                    } } else {
+                        for (int l = 0; l<columns; l++) {
+                            if (array[i][j]==array[k][l]) {
+                                samenum = false;
+                            }
                     }
                 }
-                }
+                } 
+                }while (samenum == false);
                 System.out.printf("%-5d",array[i][j]);
                 if (array[i][j]<maxnum) {
                     maxnum = array[i][j];
